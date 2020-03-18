@@ -6,14 +6,14 @@ const url = require('url');
 var staticHandler = serveStatic('./front/dist');
 
 const server = http.createServer((req, res) => {
-    // if(req.headers['x-forwarded-proto']!='https') {
-    //     res.writeHead(302, {
-    //         'Location': `https://${req.headers.host}${req.url}`
-    //     });
-    //     res.end();
-    // } else {
+    if(req.headers['x-forwarded-proto']!='https') {
+        res.writeHead(302, {
+            'Location': `https://${req.headers.host}${req.url}`
+        });
+        res.end();
+    } else {
         staticHandler(req, res, finalhandler(req, res));
-    // }
+    }
 });
 
 const io = require('socket.io')(server);
