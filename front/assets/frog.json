@@ -1,0 +1,92 @@
+{"frames": {
+
+"frame_00.png":
+{
+	"frame": {"x":1,"y":307,"w":112,"h":102},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":9,"w":112,"h":102},
+	"sourceSize": {"w":129,"h":111}
+},
+"frame_01.png":
+{
+	"frame": {"x":1,"y":716,"w":106,"h":104},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":7,"w":106,"h":104},
+	"sourceSize": {"w":129,"h":111}
+},
+"frame_02.png":
+{
+	"frame": {"x":1,"y":608,"w":109,"h":106},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":5,"w":109,"h":106},
+	"sourceSize": {"w":129,"h":111}
+},
+"frame_03.png":
+{
+	"frame": {"x":1,"y":202,"w":114,"h":103},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":8,"w":114,"h":103},
+	"sourceSize": {"w":129,"h":111}
+},
+"frame_04.png":
+{
+	"frame": {"x":1,"y":411,"w":112,"h":98},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":13,"w":112,"h":98},
+	"sourceSize": {"w":129,"h":111}
+},
+"frame_05.png":
+{
+	"frame": {"x":1,"y":822,"w":98,"h":96},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":15,"w":98,"h":96},
+	"sourceSize": {"w":129,"h":111}
+},
+"frame_06.png":
+{
+	"frame": {"x":1,"y":920,"w":95,"h":91},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":20,"w":95,"h":91},
+	"sourceSize": {"w":129,"h":111}
+},
+"frame_07.png":
+{
+	"frame": {"x":1,"y":511,"w":111,"h":95},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":16,"w":111,"h":95},
+	"sourceSize": {"w":129,"h":111}
+},
+"frame_08.png":
+{
+	"frame": {"x":1,"y":1,"w":121,"h":98},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":13,"w":121,"h":98},
+	"sourceSize": {"w":129,"h":111}
+},
+"frame_09.png":
+{
+	"frame": {"x":1,"y":101,"w":118,"h":99},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":12,"w":118,"h":99},
+	"sourceSize": {"w":129,"h":111}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "frog.png",
+	"format": "RGBA8888",
+	"size": {"w":123,"h":1012},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c7cb196a3901e50923494699d3b9de57:34f83e7b3d481f98144e2c7171b18ddc:8dde0dd0197344c2f9f9f01d8d204375$"
+}
+}
