@@ -55127,7 +55127,8 @@ function start(socket, container) {
     var claps = [];
     app.stage.interactive = true;
     app.stage.hitArea = new PIXI.Rectangle(0, 0, app.renderer.width, app.renderer.height);
-    app.stage.on("mousedown", function (e) {
+
+    var onclick = function onclick(e) {
       var clap = {
         sprite: new PIXI.Sprite(resources.clap.texture),
         clipx: e.data.global.x / app.renderer.width,
@@ -55144,7 +55145,10 @@ function start(socket, container) {
         clipx: clap.clipx.toPrecision(3),
         clipy: clap.clipy.toPrecision(3)
       });
-    });
+    };
+
+    app.stage.on("mousedown", onclick);
+    app.stage.on("touchstart", onclick);
     socket.on("clap", function (data) {
       var clap = {
         sprite: new PIXI.Sprite(resources.clap.texture),
@@ -55289,7 +55293,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57777" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59138" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

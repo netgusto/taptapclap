@@ -57,7 +57,7 @@ function start(socket, container: HTMLElement) {
 
         app.stage.interactive = true;
         app.stage.hitArea = new PIXI.Rectangle(0, 0, app.renderer.width, app.renderer.height);
-        app.stage.on("mousedown", (e) => {
+        const onclick = (e) => {
 
             const clap = {
                 sprite: new PIXI.Sprite(resources.clap.texture),
@@ -74,7 +74,9 @@ function start(socket, container: HTMLElement) {
 
             // broadcast about the clap
             socket.emit("clap", { clipx: clap.clipx.toPrecision(3), clipy: clap.clipy.toPrecision(3) });
-        });
+        };
+        app.stage.on("mousedown", onclick);
+        app.stage.on("touchstart", onclick);
 
         socket.on("clap", (data: { clipx: number, clipy: number }) => {
             const clap = {
