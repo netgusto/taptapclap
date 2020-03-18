@@ -1,4 +1,11 @@
-import * as PIXI from 'pixi.js';
+import {
+    Sprite as PIXISprite,
+    Application as PIXIApplication,
+    Rectangle as PIXIRectangle,
+    AnimatedSprite as PIXIAnimatedSprite,
+    Point as PIXIPoint,
+    Texture as PIXITexture
+} from 'pixi.js';
 import clapping_image_path from "./assets/clapping-hands.png";
 import frogsheet from "./assets/frog.json";
 import frogtexture from "./assets/frog.png";
@@ -10,7 +17,7 @@ import fireworkstexture from "./assets/fireworks.png";
 import io from 'socket.io-client';
 
 interface Clap {
-    sprite: PIXI.Sprite;
+    sprite: PIXISprite;
     clipx: number;
     clipy: number;
     TTL: number;
@@ -34,11 +41,11 @@ function start(socket, container: HTMLElement) {
 
     let berserkMode = false;
 
-    const app = new PIXI.Application({ width: container.clientWidth, height: container.clientHeight});
+    const app = new PIXIApplication({ width: container.clientWidth, height: container.clientHeight});
     container.appendChild(app.view);
     window.addEventListener("resize", (e) => {
         app.renderer.resize(container.clientWidth, container.clientHeight);
-        app.stage.hitArea = new PIXI.Rectangle(0, 0, app.renderer.width, app.renderer.height);
+        app.stage.hitArea = new PIXIRectangle(0, 0, app.renderer.width, app.renderer.height);
     });
 
     // load the texture we need
@@ -56,11 +63,11 @@ function start(socket, container: HTMLElement) {
         const claps: Array<Clap> = [];
 
         app.stage.interactive = true;
-        app.stage.hitArea = new PIXI.Rectangle(0, 0, app.renderer.width, app.renderer.height);
+        app.stage.hitArea = new PIXIRectangle(0, 0, app.renderer.width, app.renderer.height);
         const onclick = (e) => {
 
             const clap = {
-                sprite: new PIXI.Sprite(resources.clap.texture),
+                sprite: new PIXISprite(resources.clap.texture),
                 clipx: e.data.global.x / app.renderer.width,
                 clipy: e.data.global.y / app.renderer.height,
                 TTL: CLAP_TTL,
@@ -80,7 +87,7 @@ function start(socket, container: HTMLElement) {
 
         socket.on("clap", (data: { clipx: number, clipy: number }) => {
             const clap = {
-                sprite: new PIXI.Sprite(resources.clap.texture),
+                sprite: new PIXISprite(resources.clap.texture),
                 clipx: data.clipx,
                 clipy: data.clipy,
                 TTL: 200,
@@ -103,7 +110,7 @@ function start(socket, container: HTMLElement) {
 
             if (berserkMode && berserkSetup == false) {
 
-                const firework = new PIXI.AnimatedSprite(fireworksFrames);
+                const firework = new PIXIAnimatedSprite(fireworksFrames);
                 firework.anchor.x = 0.5;
                 firework.anchor.y = 0.5;
                 firework.x = (0.5 + Math.random() * 0.3) * app.renderer.width;
@@ -117,7 +124,7 @@ function start(socket, container: HTMLElement) {
                 app.stage.addChild(firework);
                 berserkdancers.push(firework);
 
-                const carlton = new PIXI.AnimatedSprite(carltonFrames);
+                const carlton = new PIXIAnimatedSprite(carltonFrames);
 
                 carlton.anchor.x = 0.5;
                 carlton.anchor.y = 1.0;
@@ -139,7 +146,7 @@ function start(socket, container: HTMLElement) {
                 if (berserkMode && !clap.berserk) {
                     clap.sprite.destroy();
 
-                    const animatedSprite = new PIXI.AnimatedSprite(frogFrames);
+                    const animatedSprite = new PIXIAnimatedSprite(frogFrames);
                     animatedSprite.animationSpeed = 0.3 + Math.random() * 0.5;
                     animatedSprite.play();
                     app.stage.addChild(animatedSprite);
@@ -156,7 +163,7 @@ function start(socket, container: HTMLElement) {
                 clap.sprite.y = clap.clipy * app.renderer.height;
 
                 const scale = app.renderer.width / (12 * CLAP_WIDTH);    // target size: display 12 claps on width
-                clap.sprite.scale = new PIXI.Point(scale, scale);
+                clap.sprite.scale = new PIXIPoint(scale, scale);
                 clap.sprite.rotation += clap.rotation;
                 clap.TTL--;
 
@@ -195,7 +202,7 @@ function framesForAnimatedSpritesheet(sheet, basetexture) {
     const frames = [];
     for (const frame of Object.values(sheet.frames)) {
         const f = frame.frame;
-        frames.push(new PIXI.Texture(basetexture, new PIXI.Rectangle(f.x, f.y, f.w, f.h)));
+        frames.push(new PIXITexture(basetexture, new PIXIRectangle(f.x, f.y, f.w, f.h)));
     }
 
     return frames;
