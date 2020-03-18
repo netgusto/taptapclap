@@ -20,7 +20,7 @@ interface Clap {
 
 const CLAP_WIDTH = 120;
 const CLAP_TTL = 180;   // 3s
-const BERSERK_THRESHOLD = 7;
+const BERSERK_THRESHOLD = 20;
 
 (window as any).clap = function(container: HTMLElement) {
 
