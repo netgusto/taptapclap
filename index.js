@@ -24,7 +24,7 @@ io.on('connection', client => {
                 clipx: Math.min(1, Math.max(0, parseFloat(unsafedata.clipx))),
                 clipy: Math.min(1, Math.max(0, parseFloat(unsafedata.clipy))),
             };
-            console.log(safedata)
+            console.log(new Date().toUTCString(), safedata)
             client.broadcast.emit('clap', safedata);
         }
     });

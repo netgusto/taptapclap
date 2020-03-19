@@ -176,10 +176,11 @@ function start(socket, container: HTMLElement) {
             });
 
             collect.sort((a, b) => b < a ? 1 : -1).forEach(idx => {
-                console.log("collect!");
-                const clap = claps[idx];
-                clap.sprite.destroy();
-                claps.splice(idx, 1);
+                if (idx in claps) {
+                    const clap = claps[idx];
+                    clap.sprite.destroy();
+                    claps.splice(idx, 1);
+                }
             });
 
             if (!berserkMode) {
