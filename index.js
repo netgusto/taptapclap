@@ -7,6 +7,7 @@ var staticHandler = serveStatic('./front/dist');
 
 const server = http.createServer((req, res) => {
     if(req.headers['x-forwarded-proto']!='https') {
+        // Redirect to https
         res.writeHead(302, {
             'Location': `https://${req.headers.host}${req.url}`
         });
