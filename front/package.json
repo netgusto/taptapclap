@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^1.12.4",
+    "parcel": "^2.8.2",
     "pixi.js": "^5.2.1",
     "typescript": "^3.8.3"
   }
