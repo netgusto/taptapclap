@@ -2,26 +2,30 @@
 
 Remote Clapping Apparatus. Broadcasts your group reactions visually.
 
-Tap or click anywhere on the page and it gets brodcasted to everybody present.
+Tap or click anywhere on the page and it gets broadcast to everybody present.
 
-Works nicely on a mobile device that you can use while videoconfing on the desktop.
+Works nicely on a mobile device that you can use while videoconferencing on the desktop.
+
+## Stack
+
+- **Frontend**: Pixi.js 8 + TypeScript, built with Vite
+- **Backend**: Cloudflare Worker + Durable Objects (WebSocket relay)
+- **Deploy**: Cloudflare Workers at [taptapclap.sigmoid.lol](https://taptapclap.sigmoid.lol)
+
+## Development
+
+```bash
+npm install
+
+# Frontend dev server (with WebSocket proxy to worker)
+npm run dev
+
+# Worker dev server (run in a separate terminal)
+npm run dev:worker
+```
 
 ## Deploy
 
-Fits on a Heroku free plan.
-
+```bash
+npm run deploy
 ```
-$ heroku create my-app-name
-$ heroku git:remote -a my-app-name
-$ git push heroku master
-# Access app on heroku at https://my-app-name.herokuapp.com
-```
-
-## Demo
-
-https://taptapclap.herokuapp.com
-
-
-## Why
-
-I missed clapping reactions during our remote all hands meetings.
